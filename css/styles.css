@@ -1,0 +1,440 @@
+/* Reset y box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tipografía y fondo */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff8f2; /* cálido y suave */
+    color: #5C4033;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #FDEBD0, #F4C2C2, #FFF7F0);
+    padding: 20px 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.logo {
+    width: 150px;
+}
+
+nav {
+    position: relative;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #5C4033;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #F4C2C2;
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsive Header */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #FFF7F0;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        width: 200px;
+        padding: 10px 0;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Main Section */
+section {
+    margin: 50px 25px;
+}
+
+.contenedor_limite {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FFF7F0;
+    border-radius: 20px;
+}
+
+.contenedor_padre, #productosNavidad {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Cards de productos */
+.card {
+    width: 200px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #FFF7F0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.card p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.card_btn {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background: linear-gradient(90deg, #F4C2C2, #D4AF37);
+    border-radius: 5px;
+    border: none;
+    color: #5C4033;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.card_btn:hover {
+    background: linear-gradient(90deg, #D4AF37, #F4C2C2);
+}
+
+/* Carrito */
+.carrito-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 10px 5px;
+    width: 300px;
+    height: 90%;
+    background-color: #FFF7F0;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.carrito-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carrito-content h2 {
+    color: #5C4033;
+}
+
+.carrito-content button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    background: linear-gradient(90deg, #F4C2C2, #D4AF37);
+    border: none;
+    color: #5C4033;
+    border-radius: 10px;
+}
+
+.li_carrito {
+    margin-bottom: 10px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.carritoItems {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 10px;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    background: linear-gradient(90deg, #FDEBD0, #F4C2C2, #FFF7F0);
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-center {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-right {
+    flex: 1;
+    text-align: right;
+}
+
+footer img {
+    width: 100px; /* tamaño del logo */
+}
+
+/* Sección navideña */
+.navidad {
+    background-color: #fff8f0;
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.navidad h2 {
+    text-align: center;
+    color: #b85c38;
+    margin-bottom: 20px;
+}
+
+/* Página de detalle de producto */
+.detalle-producto {
+    display: flex;
+    justify-content: center;
+    margin: 50px 20px;
+}
+
+.detalle-contenedor {
+    max-width: 500px;
+    text-align: center;
+    background-color: #fff8f0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.detalle-contenedor img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.detalle-contenedor button {
+    margin-top: 10px;
+}
+.titulo-seccion {
+    text-align: center;  /* centra el título */
+    color: #b85c38;      /* tono cálido similar al navideño */
+    margin-bottom: 20px;  /* separación del contenedor de cards */
+    font-size: 1.8rem;    /* tamaño visible pero elegante */
+    font-weight: 600;     /* que resalte */
+}
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.carousel img {
+  height: 400px; /* ajustá la altura según tu gusto */
+  object-fit: cover;
+  border-radius: 15px;
+}
+.carousel-item img {
+  height: 400px;       /* Cambialo según tu gusto: 300px, 450px, etc. */
+  object-fit: cover;   /* Ajusta la imagen sin deformarla */
+  border-radius: 15px; /* Bordes redondeados opcionales */
+  object-fit: contain;
+background-color: #f9f0f2; /* Fondo rosa claro detrás si sobra espacio */
+
+}
+
+.card {
+  border: none !important;              /* elimina el recuadro */
+  background-color: #fff !important;    /* fondo blanco limpio */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* sombra sutil */
+  border-radius: 15px;                  /* bordes suaves */
+}
+
+.card-body {
+  background-color: transparent !important; /* por si Bootstrap mete color */
+}
+.card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+
+.carousel-img {
+    height: 400px; /* o el alto que quieras */
+    object-fit: cover; /* mantiene proporción y recorta si es necesario */
+    border-radius: 10px; /* opcional, para que no quede pegado al borde */
+}
+/* Google Fonts: Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Tipografía general y colores para toda la web */
+body, html {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background-color: #fff8f2; /* cálido y suave */
+    color: #5C4033;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+/* Párrafos */
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin: 0 0 15px 0;
+}
+
+/* Links */
+a {
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Botones */
+button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+/* Inputs y formularios */
+input, select, textarea {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Cards y textos especiales */
+.card-title, .card-text {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card_btn {
+    margin: 5px 2px; /* espacio entre botones */
+}
+.botones-carrito {
+    display: flex;
+    gap: 10px; /* separación entre los botones */
+    justify-content: center; /* centra los botones horizontalmente */
+    margin-top: 10px;
+}
+
+/* ------------------ Ajustes responsive adicionales ------------------ */
+
+/* Carrusel más compacto en móviles */
+@media (max-width: 768px) {
+    .carousel-img,
+    .carousel-item img {
+        height: 250px; /* más apropiado para pantallas pequeñas */
+    }
+}
+
+/* Márgenes de sección más reducidos en móviles */
+@media (max-width: 600px) {
+    section {
+        margin: 30px 15px;
+    }
+}
+
+/* Cards ocupan casi todo el ancho en móviles muy pequeños */
+@media (max-width: 500px) {
+    .card {
+        width: 90%;
+    }
+}
+
+/* Footer se acomoda verticalmente en móvil */
+@media (max-width: 600px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+}
+
+.logo-text {
+    font-family: 'Poppins', sans-serif;  /* misma fuente */
+    font-weight: 700;  /* más gruesa que el resto */
+    font-style: italic;  /* le da un toque cursivo elegante */
+    font-size: 2rem;  /* tamaño un poco más grande */
+    color: #423a34;    /* opcional, para resaltar */
+}
+.logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: 1px;
+    font-size: 2rem;
+    color: #423a34;
+}

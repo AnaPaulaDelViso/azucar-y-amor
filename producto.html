@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <title>Producto Detalle</title>
+</head>
+
+<body>
+  <header>
+    <div>
+      <img src="./img/logo.png" alt="Logo" class="logo" />
+    </div>
+     <div class="header-center">
+    <h2 class="logo-text">Azúcar y Amor</h2>
+</div>
+    <nav>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#productosNormales">Productos</a></li>
+        <li><a href="#" id="carritoLink">Carrito</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerButton">&#9776;</button>
+    </nav>
+  
+  </header>
+
+  <main>
+    <section class="detalle-producto">
+      <div class="detalle-contenedor">
+        <h2 id="nombreProducto"></h2>
+        <img id="imagenProducto" src="" alt="" />
+        <p id="precioProducto"></p>
+        <p id="cantidadProducto"></p>
+        <p id="descripcionProducto"></p>
+
+        <button id="agregarAlCarrito" class="card_btn">Agregar al Carrito</button>
+        <button onclick="window.history.back()" class="card_btn">Volver</button>
+      </div>
+    </section>
+
+    <aside>
+      <div class="carrito-menu" id="carritoMenu">
+        <div class="carrito-content">
+          <h2>Carrito</h2>
+          <ul id="carritoItems"></ul>
+          <div class="botones-carrito">
+            <button id="salirButton" class="btn_carrito">Salir</button>
+            <button id="btn_vaciar" class="btn_carrito">Vaciar</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <h4>Hecho con ❤️ por Anii - 2025</h4>
+    </div>
+    <div class="footer-center">
+      <p>Síguenos en Instagram: @azucaryamor</p>
+    </div>
+    <div class="footer-right">
+      <img src="./img/logo.png" alt="Logo Azúcar y Amor" class="logo" />
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = parseInt(urlParams.get("id"));
+
+      const productos = [
+        { id: 1, nombre: "Torta de Chocolate", precio: 4000, unidad: "1 entero (1Kg)", img: "./img/torta-de-chocolate.jpg", descripcion: "Suave bizcochuelo de cacao con relleno cremoso y cobertura intensa de chocolate. Un clásico irresistible para los amantes del dulce." },
+        { id: 2, nombre: "Alfajor Clásico", precio: 500, unidad: "1 unidad (50gr)", img: "./img/alfajores-clasicos.jpg", descripcion: "Dos tapas tiernas con dulce de leche artesanal y un baño de chocolate semiamargo que se derrite en la boca. Tradición en cada mordida." },
+        { id: 3, nombre: "Brownie de Chocolate", precio: 1000, unidad: "1 porcion (100gr)", img: "./img/Brownie.jpg", descripcion: "Textura húmeda, sabor profundo a cacao y ese toque crocante por fuera. Ideal para acompañar con un cafecito o helado." },
+        { id: 4, nombre: "Cupcakes", precio: 3000, unidad: "6 unidades", img: "./img/cupcakes.jpg", descripcion: "Mini tortitas decoradas con crema suave y colorida. Perfectas para regalar, compartir o simplemente endulzarte el día." },
+        { id: 5, nombre: "Cookies", precio: 1500, unidad: "6 unidades (40gr c/u)", img: "./img/galles-con-chips.jpg", descripcion: "Galletas caseras con chips de chocolate, doradas y crocantes por fuera, blanditas por dentro. El equilibrio justo." },
+        { id: 6, nombre: "Postresitos variados", precio: 1000, unidad: "1 unidad", img: "./img/postresitos.jpg", descripcion: "Deliciosos vasitos individuales con combinaciones de dulce de leche, chocolate, frutos y crema. Pequeños, pero potentes en sabor. Elegi el que mas te tiente." },
+        { id: 7, nombre: "Cheesecake de Frutilla", precio: 6000, unidad: "1 entero (1Kg)", img: "./img/chesscake-frutilla.jpg", descripcion: "Base crocante, crema de queso suave y una capa fresca de frutillas naturales. Ligero, fresco y elegante." },
+        { id: 8, nombre: "Mini Donas", precio: 2000, unidad: "6 unidades", img: "./img/mini-donas.jpg", descripcion: "Pequeños bocados glaseados con distintos sabores y colores. Tan lindas como ricas." },
+        { id: 9, nombre: "Lemon Pie", precio: 5000, unidad: "1 entero (1Kg)", img: "./img/lemon-pay.jpg", descripcion: "Base de masa dulce, crema de limón suave y merengue italiano doradito. Dulce y ácido en perfecta armonía." },
+        { id: 10, nombre: "Trufas", precio: 3000, unidad: "10 unidades", img: "./img/trufas.jpg", descripcion: "Bocaditos de chocolate artesanal con un toque de licor o cacao puro. Pequeños, intensos y adictivos." },
+        { id: 11, nombre: "Tiramisú", precio: 2500, unidad: "1 porción (150gr)", img: "./img/tiramisu.jpg", descripcion: "Clásico italiano con capas de bizcochuelo, café y crema mascarpone. Un postre elegante y suave." },
+        { id: 12, nombre: "Cake Pops", precio: 3000, unidad: "10 unidades", img: "./img/cakepops.jpg", descripcion: "Bolitas de torta bañadas en chocolate y decoradas con amor. Diversión y dulzura en cada palito." },
+      ];
+
+      const productosNavidad = [
+        { id: 101, nombre: "Galletas de Jengibre", precio: 1200, unidad: "5 unidades (120gr c/u)", img: "./img/galletas-de-jengibre.jpg", descripcion: "Crujientes, aromáticas y decoradas a mano. Un clásico navideño que llena la casa de perfume a fiesta." },
+        { id: 102, nombre: "Pan Dulce", precio: 1800, unidad: "1 unidad (1Kg)", img: "./img/pan-dulce.jpg", descripcion: "Esponjoso, lleno de frutas abrillantadas y nueces. El alma de toda mesa navideña." },
+        { id: 103, nombre: "Mantecol Marmolado", precio: 2000, unidad: "1 unidad (420gr)", img: "./img/mantecol.jpg", descripcion: "Textura cremosa de maní con vetas de chocolate. Nostalgia y sabor en un mismo bocado." },
+        { id: 104, nombre: "Budín Navideño", precio: 1500, unidad: "1 unidad (200gr)", img: "./img/budin.jpg", descripcion: "Húmedo, con frutas secas y un toque de especias. Perfecto para acompañar un mate o un brindis festivo." },
+        { id: 105, nombre: "Tronco Navideño", precio: 4000, unidad: "1 unidad (1kg)", img: "./img/tronco-navideño.jpg", descripcion: "Bizcochuelo arrollado con crema y cobertura de chocolate, decorado como un tronco. Puro espíritu navideño hecho postre." },
+      ];
+
+      const producto = productos.concat(productosNavidad).find(p => p.id === id);
+
+      if (producto) {
+        document.getElementById("nombreProducto").textContent = producto.nombre;
+        document.getElementById("imagenProducto").src = producto.img;
+        document.getElementById("imagenProducto").alt = producto.nombre;
+        document.getElementById("precioProducto").textContent = `Precio: $${producto.precio}`;
+        document.getElementById("cantidadProducto").textContent = `Cantidad: ${producto.unidad}`;
+        document.getElementById("descripcionProducto").textContent = producto.descripcion;
+      } else {
+        document.querySelector(".detalle-contenedor").innerHTML =
+          "<p>Producto no encontrado</p><button onclick='window.history.back()' class='card_btn'>Volver</button>";
+      }
+
+      // --- Carrito ---
+      const carritoItems = document.getElementById("carritoItems");
+      const agregarBtn = document.getElementById("agregarAlCarrito");
+      const btn_vaciar = document.getElementById("btn_vaciar");
+      const carritoLink = document.getElementById("carritoLink");
+      const carritoMenu = document.getElementById("carritoMenu");
+      const salirButton = document.getElementById("salirButton");
+
+      agregarBtn.addEventListener("click", function () {
+        const item = document.createElement("li");
+        item.textContent = `${producto.nombre} - $${producto.precio}`;
+        const eliminar = document.createElement("button");
+        eliminar.textContent = "Eliminar";
+        eliminar.classList.add("btn_carrito");
+        eliminar.addEventListener("click", function () {
+          carritoItems.removeChild(item);
+        });
+        item.appendChild(eliminar);
+        carritoItems.appendChild(item);
+      });
+
+      btn_vaciar.addEventListener("click", function () {
+        carritoItems.innerHTML = "";
+      });
+
+      carritoLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        carritoMenu.style.display = "block";
+      });
+
+      salirButton.addEventListener("click", function () {
+        carritoMenu.style.display = "none";
+      });
+
+      // --- Menú hamburguesa ---
+      const hamburgerButton = document.getElementById("hamburgerButton");
+      const menu = document.getElementById("menu");
+      function toggleMenu() {
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+          hamburgerButton.innerHTML = "&#9776;";
+        } else {
+          menu.style.display = "block";
+          hamburgerButton.innerHTML = "✖";
+        }
+      }
+      hamburgerButton.addEventListener("click", toggleMenu);
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 600) {
+          menu.style.display = "flex";
+          hamburgerButton.innerHTML = "&#9776;";
+        } else {
+          menu.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
